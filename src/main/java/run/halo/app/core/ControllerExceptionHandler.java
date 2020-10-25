@@ -111,7 +111,6 @@ public class ControllerExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public BaseResponse<?> handleUploadSizeExceededException(MaxUploadSizeExceededException e) {
         BaseResponse<Object> response = handleBaseException(e);
-        response.setStatus(HttpStatus.BAD_REQUEST.value());
         response.setMessage("当前请求超出最大限制：" + e.getMaxUploadSize() + " bytes");
         return response;
     }
